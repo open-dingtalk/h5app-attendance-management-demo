@@ -105,10 +105,14 @@ git clone https://github.com/open-dingtalk/h5app-attendance-management-demo.git
 
 ## 6. 参考文档
 
-1. 扫码登录第三方网站，文档链接：https://open.dingtalk.com/document/orgapp-server/scan-qr-code-to-log-on-to-third-party-websites
-2. 根据sns临时授权码获取用户信息，文档链接：https://open.dingtalk.com/document/orgapp-server/obtain-the-user-information-based-on-the-sns-temporary-authorization
-3. 根据unionid获取用户的userid，文档链接https://open.dingtalk.com/document/orgapp-server/query-a-user-by-the-union-id
-4. 调用userid获取用户信息，文档链接：https://open.dingtalk.com/document/orgapp-server/query-user-details
+1. 获取企业内部应用access_token，文档链接：https://open.dingtalk.com/document/orgapp-server/obtain-orgapp-token
+2. 获取打卡结果，文档链接：https://open.dingtalk.com/document/orgapp-server/open-attendance-clock-in-data
+3. 获取考勤报表列定义，文档链接：https://open.dingtalk.com/document/orgapp-server/queries-the-enterprise-attendance-report-column
+4. 获取考勤报表列值，文档链接：https://open.dingtalk.com/document/orgapp-server/obtains-the-column-values-of-the-smart-attendance-report
+5. 批量查询人员排班信息，文档链接：https://open.dingtalk.com/document/orgapp-server/query-batch-scheduling-information
+6. 获取报表假期数据，文档链接：https://open.dingtalk.com/document/orgapp-server/obtains-the-holiday-data-from-the-smart-attendance-report
+7. 通知审批通过，文档链接：https://open.dingtalk.com/document/orgapp-server/notice-of-approval
+
 
 ## 7.免责声明
 
