@@ -1,0 +1,189 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>获取钉钉数据</title>
+    <script src="https://g.alicdn.com/dingding/dingtalk-jsapi/2.13.42/dingtalk.open.js"></script>
+</head>
+<body>
+    <ul class="list-group">
+        <li class="list-group-item text-center">姓名：<em id="name"></em></li>
+        <li class="list-group-item text-center">UserId：<em id="userid"></em></li>
+    </ul>
+
+    <ul class="list-group">
+        <li class="list-group-item text-center"><button class="btn btn-info" id="btnText" onclick="getCheck()"><em>获取打卡结果</em></button></li>
+        <li class="list-group-item text-center"><button class="btn btn-info" id="btnText" onclick="getStatisticsc()"><em>获取报表列值</em></button></li>
+        <li class="list-group-item text-center"><button class="btn btn-info" id="btnText" onclick="getSchedule()"><em>获取人员排班</em></button></li>
+        <li class="list-group-item text-center"><button class="btn btn-info" id="btnText" onclick="getHoliday()"><em>获取假期数据</em></button></li>
+        <li class="list-group-item text-center"><button class="btn btn-info" id="btnText" onclick="leaveApprove()"><em>请假审批通过推送</em></button></li>
+    </ul>
+
+    <ul class="list-group" id="dataList">
+    </ul>
+
+    <script type="text/javascript">
+        // 使用钉钉客户端打开，获取当前登录用户信息
+        dd.ready(function () {
+
+            // 获取配置中的CorpId
+            $.ajax({
+                type: "get",
+                url: "/Product/getCorpId",
+                success: function (data) {
+
+                    // 获取免登授权码
+                    dd.runtime.permission.requestAuthCode({
+                        corpId: data, // 企业id
+                        onSuccess: function (info) {
+
+                            // 通过免登授权码获取用户信息
+                            $.ajax({
+                                type: "get",
+                                url: "/Product/getUserByCode",
+                                data: { code: info.code },
+                                dataType: "json",
+                                success: function (data) {
+                                    $("#name").html(data.Name);
+                                    $("#userid").html(data.Userid);
+                                },
+                                error: function () { }
+                            })
+                        },
+                        onFail: function (err) {
+                            alert(JSON.stringify(err))
+                        }
+                    });
+
+                },
+                error: function () { }
+            })
+        });
+
+        const getCheck = function () {
+            $.ajax({
+                type: "get",
+                url: "/Product/getCheck",
+                data: { userId: $("#userid").html() },
+                dataType: "json",
+                success: function (data) {
+                    var dataHtml = "";
+                    $(data).each(function (i, item) {
+                        dataHtml += "<li class='list-group-item'>【考勤类型：" + item.checkType + "】  【打卡结果：" + item.timeResult + "】  【打卡时间：" + item.userCheckTime + "】</li>";
+                    })
+
+                    if (dataHtml == "") {
+                        dataHtml += "<li class='list-group-item'>无数据</li>";
+                    }
+
+                    $("#dataList").html(dataHtml);
+                },
+                error: function () { }
+
+            })
+        }
+
+        const getStatisticsc = function () {
+            $.ajax({
+                type: "get",
+                url: "/Product/getStatisticsc",
+                data: { userId: $("#userid").html() },
+                dataType: "json",
+                success: function (data) {
+                    var dataHtml = "";
+                    $(data).each(function (i, item) {
+                        dataHtml += "<li class='list-group-item'>【报表列：" + item.type + "】</li>";
+
+                        $(item.dataVals).each(function (i2, item2) {
+                            dataHtml += "<li class='list-group-item'>【日期：" + item2.date + "】  【列值：" + item2.value + "】</li>";
+                        });
+                    })
+
+                    if (dataHtml == "") {
+                        dataHtml += "<li class='list-group-item'>无数据</li>";
+                    }
+
+                    $("#dataList").html(dataHtml);
+                },
+                error: function () { }
+
+            })
+        }
+
+        const getSchedule = function () {
+            $.ajax({
+                type: "get",
+                url: "/Product/getSchedule",
+                data: { userId: $("#userid").html() },
+                dataType: "json",
+                success: function (data) {
+                    var dataHtml = "";
+                    $(data).each(function (i, item) {
+                        dataHtml += "<li class='list-group-item'>【考勤类型：" + item.check_type + "】  【计划打卡时间：" + item.plan_check_time + "】</li>";
+                    })
+
+                    if (dataHtml == "") {
+                        dataHtml += "<li class='list-group-item'>无数据</li>";
+                    }
+
+                    $("#dataList").html(dataHtml);
+                },
+                error: function () { }
+
+            })
+        }
+
+        const getHoliday = function () {
+            $.ajax({
+                type: "get",
+                url: "/Product/getHoliday",
+                data: { userId: $("#userid").html() },
+                dataType: "json",
+                success: function (data) {
+                    var dataHtml = "";
+                    $(data).each(function (i, item) {
+                        dataHtml += "<li class='list-group-item'>【假期类型：" + item.type + "】</li>";
+
+                        $(item.dataVals).each(function (i2, item2) {
+                            dataHtml += "<li class='list-group-item'>【日期：" + item2.date + "】  【时长：" + item2.value + "】</li>";
+                        });
+                    })
+
+                    if (dataHtml == "") {
+                        dataHtml += "<li class='list-group-item'>无数据</li>";
+                    }
+
+                    $("#dataList").html(dataHtml);
+                },
+                error: function () { }
+
+            })
+        }
+
+        const leaveApprove = function () {
+            $.ajax({
+                type: "get",
+                url: "/Product/leaveApprove",
+                data: { userId: $("#userid").html() },
+                success: function (data) {
+                    if (data == 1) {
+                        alert("推送成功");
+                    }
+                    else {
+                        alert("推送失败");
+                    }
+
+                },
+                error: function () { }
+
+            })
+        }
+    </script>
+</body>
+</html>

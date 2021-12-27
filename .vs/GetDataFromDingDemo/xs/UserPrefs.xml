@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{1A4E9FBC-00A5-4DD6-BFAC-9F3123AEB068}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/ProductController.cs">
+    <Files>
+      <File FileName="Web.config" Line="16" Column="20" />
+      <File FileName="Views/Product/Index.cshtml" />
+      <File FileName="Controllers/ProductController.cs" Line="210" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GetDataFromDingDemo" expanded="True">
+            <Node name="GetDataFromDingDemo" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="ProductController.cs" selected="True" />
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Product" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.GetDataFromDingDemo PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
