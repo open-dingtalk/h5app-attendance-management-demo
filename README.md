@@ -63,7 +63,7 @@
 2. 下载项目：
 
 ```shell
-git clone https://github.com/open-dingtalk/h5app-out-login-demo.git
+git clone https://github.com/open-dingtalk/h5app-attendance-management-demo.git
 ```
 
 3. 修改Web.config，配置应用信息，相关参数获取方法如下：
@@ -90,14 +90,18 @@ git clone https://github.com/open-dingtalk/h5app-out-login-demo.git
 
 ## 5. 页面展示
 
-登录二维码
+首页————获取打卡结果
 
-![](https://img.alicdn.com/imgextra/i4/O1CN01EBGOml1aArmyOlAMu_!!6000000003290-2-tps-587-443.png)
+![](https://img.alicdn.com/imgextra/i3/O1CN012cdNkY1jcBxXHMaFX_!!6000000004568-2-tps-444-736.png)
 
-扫码登录后的重定向页面，展示登录的用户信息
+获取报表列值
 
-![](https://img.alicdn.com/imgextra/i1/O1CN01PeekbY1UAyBBDjQfz_!!6000000002478-2-tps-317-186.png)
 
+![](https://img.alicdn.com/imgextra/i3/O1CN01jeBlmR1PCjd2qeS1i_!!6000000001805-2-tps-444-195.png)
+
+推送请假审批通过
+
+![](https://img.alicdn.com/imgextra/i3/O1CN01appJZ01jPMs19Rf5n_!!6000000004540-2-tps-444-306.png)
 
 ## 6. 参考文档
 
