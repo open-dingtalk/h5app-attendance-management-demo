@@ -86,7 +86,7 @@ git clone https://github.com/open-dingtalk/h5app-attendance-management-demo.git
 
 - 配置地址： ![](https://img.alicdn.com/imgextra/i1/O1CN01IWleEp1Kw0hX9suby_!!6000000001227-2-tps-1408-489.png)
 
-5. 访问页面：浏览器访问临时域名即可
+5. 访问页面：使用移动端钉钉工作台访问应用
 
 ## 5. 页面展示
 
